@@ -13,28 +13,19 @@
  * 
 */
 
-
 /**
  * Define Global Variables
  * 
 */
 
 const navUl = document.querySelector("#navbar__list");
-const listItem = document.createElement("li");
 const sections = document.querySelectorAll("section");
-const secLength = sections.length;
 
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */
-
-
-
-
-
-
 
 
 
@@ -46,7 +37,11 @@ const secLength = sections.length;
 
 
 // build the nav
-
+for(let section of sections){
+    const listItem = document.createElement("li");
+    listItem.innerHTML = `<a href="#${section.id}">${section.getAttribute("data-nav")}</a>`;
+    navUl.appendChild(listItem);
+}
 
 
 
