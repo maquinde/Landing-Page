@@ -67,6 +67,17 @@ navUl.addEventListener("click", scroll);
 
 //SMOOOTH SCROLL FUNCTION
 function scroll(event){
+    event.preventDefault();
     const targetId = event.target.getAttribute("href");
-    console.log(targetId);
+    window.scrollTo({
+        top: document.querySelector(targetId).offsetTop,
+        behavior: "smooth"
+    });
 }
+
+//FUNCTION TO CHECK IF ELEMENT IS IN VIEWPORT
+
+//ADD EVENT LISTENER TO WINDOW W/ ANON FUNCTION
+
+//ADD/REMOVE CLASSES
+
