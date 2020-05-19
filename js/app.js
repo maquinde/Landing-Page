@@ -52,6 +52,7 @@
 const navUl = document.querySelector("#navbar__list");
 const sections = document.querySelectorAll("section");
 
+const section1 = document.querySelector("#section1");
 
 //BUILDING THE DYNAMIC NAV
 for(let section of sections){
@@ -76,8 +77,21 @@ function scroll(event){
 }
 
 //FUNCTION TO CHECK IF ELEMENT IS IN VIEWPORT
+var isInViewport = function (elem) {
+    var bounding = elem.getBoundingClientRect();
+    return (
+        bounding.top >= 0 &&
+        bounding.left >= 0 &&
+        bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+};
 
-//ADD EVENT LISTENER TO WINDOW W/ ANON FUNCTION
 
-//ADD/REMOVE CLASSES
+//ADD EVENT LISTENER TO WINDOW W/ ANON FUNCTION ADD/REMOVE CLASSES
+// window.addEventListener("scroll", function(){
+
+// });
+
+console.log(isInViewport(section1));
 

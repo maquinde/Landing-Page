@@ -68,8 +68,8 @@ section {
     padding-left: 0;
     margin: 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
-
 }
 
 .navbar__menu li {
@@ -90,6 +90,10 @@ section {
     
     .navbar__menu li a {
         font-size: 12px;
+    }
+
+    .main__hero {
+        padding-top: 25px;
     }
 }
 
@@ -213,17 +217,21 @@ section:nth-of-type(3n + 1) .landing__container::after {
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
-section.your-active-class {
-    background: rgb(0, 0, 0);
+section.my-active-class {
+    background: rgb(216, 35, 35);
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
-section.your-active-class .landing__container::before {
+.active-button {
+    background-color: rgb(216, 35, 35);
+}
+
+section.my-active-class .landing__container::before {
     opacity: 1;
     animation: rotate 4s linear 0s infinite forwards;
 }
 
-section.your-active-class .landing__container::after {
+section.my-active-class .landing__container::after {
     opacity: 1;
     animation: rotate 5s linear 0s infinite forwards reverse;
 }
