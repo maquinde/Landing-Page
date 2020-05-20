@@ -61,9 +61,9 @@ for(let section of sections){
 }
 
 
-//FUNCTION TO CHECK IF ELEMENT IS IN VIEWPORT
-var isInViewport = function (elem) {
-    var bounding = elem.getBoundingClientRect();
+//IS IN VIEWPORT
+ function isInViewport(elem) {
+    let bounding = elem.getBoundingClientRect();
     return (
         bounding.top >= 0 &&
         bounding.left >= 0 &&
@@ -78,7 +78,7 @@ function scroll(event){
     event.preventDefault();
     const targetId = event.target.getAttribute("href");
     window.scrollTo({
-        top: document.querySelector(targetId).offsetTop,
+        top: document.querySelector(targetId).offsetTop, //try detecting with this
         behavior: "smooth"
     });
 }
@@ -88,18 +88,17 @@ function scroll(event){
 navUl.addEventListener("click", scroll);
 
 
-
-
 //ADD EVENT LISTENER TO WINDOW W/ ANON FUNCTION ADD/REMOVE CLASSES
-window.addEventListener("scroll", function(){
+window.addEventListener("scroll", function(event){
+
     for (let i = 0; i < sections.length; i++) {
-        
-        if (sections[i].getBoundingClientRect().top <= window.innerHeight * 0.25 && sections[i].getBoundingClientRect().top > 0) {
+
+        if (sections[i].getBoundingClientRect().top <= window.innerHeight * 0.75 && sections[i].getBoundingClientRect().top > 0) {
           sections[i].classList.add('my-active-class');
           navUl.children[i].classList.add("active-button");
         }
 
-        if (!(sections[i].getBoundingClientRect().top <= window.innerHeight * 0.25 && sections[i].getBoundingClientRect().top > 0)){
+        if (!(sections[i].getBoundingClientRect().top <= window.innerHeight * 0.75 && sections[i].getBoundingClientRect().top > 0)){
             sections[i].classList.remove('my-active-class');
             navUl.children[i].classList.remove("active-button");
         }
