@@ -1,53 +1,3 @@
-/**
- * 
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- * 
- * Dependencies: None
- * 
- * JS Version: ES2015/ES6
- * 
- * JS Standard: ESlint
- * 
-*/
-
-/**
- * Define Global Variables
- * 
-*/
-
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
-
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
-
-// build the nav
-// Add class 'active' to section when near top of viewport
-// Scroll to anchor ID using scrollTO event
-
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-// Scroll to section on link click
-// Set sections as active
-
-
-
-
-
 //GLOBAL VARIABLES USED:
 const navUl = document.querySelector("#navbar__list");
 const sections = document.querySelectorAll("section");
@@ -73,7 +23,6 @@ function isInView(element) {
 };
 
 //SMOOTH SCROLL FUNCTION:
-//
 function smoothScroll(event){
     event.preventDefault();
     let element = event.target.getAttribute("href");
@@ -82,20 +31,18 @@ function smoothScroll(event){
 }
 
 
-//ADDING THE EVENT LISTENER TO THE NAV UL FOR SMOOTH SCROLL
+//ADDING THE EVENT LISTENER TO THE NAV UL FOR SMOOTH SCROLL:
 navUl.addEventListener("click", smoothScroll);
 
 
-//ADD EVENT LISTENER TO WINDOW W/ ANON FUNCTION ADD/REMOVE CLASSES
+//ADD EVENT LISTENER TO WINDOW W/ ANON FUNCTION ADD/REMOVE CLASSES:
 window.addEventListener("scroll", function(event){
     for (let i = 0; i < sections.length; i++) {
-        //ADD LOGIC TO ADD/REMOVE CLASSES
+        //ADD LOGIC TO ADD/REMOVE CLASSES:
         if(isInView(sections[i])){
             sections[i].classList.add("my-active-class");
             navUl.children[i].classList.add("active-button");
-        }
-
-        if(!isInView(sections[i])){
+        } else {
             sections[i].classList.remove("my-active-class");
             navUl.children[i].classList.remove("active-button");
         }
