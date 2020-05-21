@@ -48,12 +48,12 @@
 
 
 
-//GLOBAL VARIABLES USED
+//GLOBAL VARIABLES USED:
 const navUl = document.querySelector("#navbar__list");
 const sections = document.querySelectorAll("section");
 
 
-//BUILDING THE DYNAMIC NAV
+//BUILDING THE DYNAMIC NAV:
 for(let section of sections){
     const listItem = document.createElement("li");
     listItem.innerHTML = `<a href="#${section.id}">${section.getAttribute("data-nav")}</a>`;
@@ -61,31 +61,29 @@ for(let section of sections){
 }
 
 
-//IS IN VIEWPORT
+//IS IN VIEWPORT FUNCTION:
 function isInView(element) {
-    let bounding = element.getBoundingClientRect();
+    let rect = element.getBoundingClientRect();
     return (
-        bounding.top >= 0 &&
-        bounding.left >= 0 &&
-        bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth) &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
     );
 };
 
-
-//SMOOOTH SCROLL FUNCTION
-function scrolling(event){
+//SMOOTH SCROLL FUNCTION:
+//
+function smoothScroll(event){
     event.preventDefault();
-    const targetId = event.target.getAttribute("href");
-    window.scrollTo({
-        top: document.querySelector(targetId).offsetTop, //try detecting with this
-        //Add left: to this, Lookup .offsetLeft?
-        behavior: "smooth"
-    });
+    let element = event.target.getAttribute("href");
+    let targetId = document.querySelector(element);
+    targetId.scrollIntoView({behavior: "smooth"});
 }
 
-//ADDING THE EVENT LISTENER TO THE NAV UL
-navUl.addEventListener("click", scrolling);
+
+//ADDING THE EVENT LISTENER TO THE NAV UL FOR SMOOTH SCROLL
+navUl.addEventListener("click", smoothScroll);
 
 
 //ADD EVENT LISTENER TO WINDOW W/ ANON FUNCTION ADD/REMOVE CLASSES
