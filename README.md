@@ -1,13 +1,17 @@
-# Landing Page Project
+# Landing Page
 
-## Table of Contents
+This is my solution for the Udacity Frontend Developer Landing Page project.
 
-* [Instructions](#instructions)
+## What I Did
 
-## Instructions
+I created a dynamic navigation bar with list items that scroll smoothly to their corisponding sections when clicked. After clicking the list item, the section that is in view will be highlighted in the navigation.
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Authors
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+* **Michael Aquinde* - *Initial work* - [Maquinde](https://github.com/maquinde)
+
+
+## License
+
+This project is licensed under the MIT License
