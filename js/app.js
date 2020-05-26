@@ -14,12 +14,7 @@ for(let section of sections){
 //IS IN VIEWPORT FUNCTION:
 function isInView(element) {
     let rect = element.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth) &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-    );
+    return (rect.top > -(innerHeight * 0.4) && rect.top < innerHeight * 0.2 );
 };
 
 //SMOOTH SCROLL FUNCTION:
@@ -36,15 +31,15 @@ navUl.addEventListener("click", smoothScroll);
 
 
 //ADD EVENT LISTENER TO WINDOW W/ ANON FUNCTION ADD/REMOVE CLASSES:
-window.addEventListener("scroll", function(event){
+window.addEventListener("scroll", function(){
     for (let i = 0; i < sections.length; i++) {
         //ADD LOGIC TO ADD/REMOVE CLASSES:
         if(isInView(sections[i])){
-            sections[i].classList.add("my-active-class");
-            navUl.children[i].classList.add("active-button");
+            sections[i].classList.add("your-active-class");
+            // navUl.children[i].classList.add("active-button");
         } else {
-            sections[i].classList.remove("my-active-class");
-            navUl.children[i].classList.remove("active-button");
+            sections[i].classList.remove("your-active-class");
+            // navUl.children[i].classList.remove("active-button");
         }
       }
 });
