@@ -36,10 +36,10 @@ window.addEventListener("scroll", function(){
         //ADD LOGIC TO ADD/REMOVE CLASSES:
         if(isInView(sections[i])){
             sections[i].classList.add("your-active-class");
-            // navUl.children[i].classList.add("active-button");
+            navUl.children[i].classList.add("active-button");
         } else {
             sections[i].classList.remove("your-active-class");
-            // navUl.children[i].classList.remove("active-button");
+            navUl.children[i].classList.remove("active-button");
         }
       }
 });
